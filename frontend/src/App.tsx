@@ -7,6 +7,8 @@ import TechSection from './components/TechSection'
 import LogicFlowSection from './components/LogicFlowSection'
 import SupervisionSection from './components/SupervisionSection'
 import RoadmapSection from './components/RoadmapSection'
+import EventsSection from './components/EventsSection'
+import DonationListSection from './components/DonationListSection'
 import Footer from './components/Footer'
 
 function App() {
@@ -20,6 +22,8 @@ function App() {
                 <LogicFlowSection />
                 <SupervisionSection />
                 <RoadmapSection />
+                <EventsSection />
+                <DonationListSection />
                 <Footer />
             </div>
         </WalletProvider>
