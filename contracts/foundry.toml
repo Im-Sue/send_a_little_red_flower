@@ -1,0 +1,13 @@
+[profile.default]
+src = "src"
+out = "out"
+libs = ["lib"]
+# Use auto-detect to handle multiple Solidity versions in dependencies
+solc = "0.8.24"
+auto_detect_solc = true
+optimizer = true
+optimizer_runs = 200
+via_ir = false
+evm_version = "paris"
+
+# See more config options https://github.com/foundry-rs/foundry/blob/master/crates/config/README.md#all-options
