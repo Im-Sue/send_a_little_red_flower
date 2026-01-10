@@ -1,66 +1,94 @@
-## Foundry
+# 送你一朵小红花 - 跨链慈善捐款平台
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+基于 Hyperbridge ISMP 协议的跨链捐款平台，用户在 Ethereum 捐款后，可在 Arbitrum 收到小红花代币作为感谢。
 
-Foundry consists of:
+## 功能
 
-- **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
-- **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
-- **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
-- **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+- 在 Ethereum Sepolia 发起捐款
+- 通过 Hyperbridge ISMP 跨链传递消息
+- 在 Arbitrum Sepolia 接收捐款并铸造小红花代币
+- 1 USDT = 100 FLOWER 的固定比例
 
-## Documentation
+## 已部署合约
 
-https://book.getfoundry.sh/
+### Arbitrum Sepolia
+- **DonationVault**: `0x1c6D6663B2667fE282680a8c36E05FA73ADB85f7`
+  - 接收跨链捐款
+  - 铸造小红花代币 (FLOWER)
+  - 管理捐款事件
 
-## Usage
+### Ethereum Sepolia
+- **TokenBridge**: `0x1c6D6663B2667fE282680a8c36E05FA73ADB85f7`
+  - 接收用户捐款
+  - 发送跨链消息
 
-### Build
+### 测试代币
+- **Mock USDT**: `0xEabab8DA6dcfFC511579Cd1e43357B9A68842BD8` (Ethereum Sepolia)
 
-```shell
-$ forge build
+## 技术栈
+
+- Solidity ^0.8.20
+- Foundry (开发框架)
+- Hyperbridge ISMP (跨链协议)
+- OpenZeppelin (ERC20, Ownable, ReentrancyGuard)
+
+## 测试
+
+- 单元测试: 39/39 通过
+- Fork 测试: 通过
+- 实际部署测试: DonationVault 功能验证通过
+
+## 当前状态
+
+- ✅ 合约部署完成
+- ✅ DonationVault 核心功能正常
+- ✅ 小红花代币铸造正常
+- ⚠️ 跨链调用需要使用 feeToken (USD.h) 支付（测试网限制）
+
+## 快速开始
+
+### 环境配置
+
+```bash
+# 复制配置文件
+cp .env.example .env
+
+# 编辑 .env 填写你的私钥和 RPC URLs
 ```
 
-### Test
+### 编译
 
-```shell
-$ forge test
+```bash
+forge build
 ```
 
-### Format
+### 测试
 
-```shell
-$ forge fmt
+```bash
+forge test
 ```
 
-### Gas Snapshots
+### 部署
 
-```shell
-$ forge snapshot
+详见 `DEPLOYMENT.md`
+
+## 区块链浏览器
+
+- Arbitrum Sepolia: https://sepolia.arbiscan.io/address/0x1c6D6663B2667fE282680a8c36E05FA73ADB85f7
+- Ethereum Sepolia: https://sepolia.etherscan.io/address/0x1c6D6663B2667fE282680a8c36E05FA73ADB85f7
+
+## 合约结构
+
+```
+src/
+├── TokenBridge.sol       # Ethereum 端捐款入口
+├── DonationVault.sol     # Arbitrum 端捐款接收
+└── interfaces/
+    └── IISMPCore.sol     # ISMP 协议接口
 ```
 
-### Anvil
+## 说明
 
-```shell
-$ anvil
-```
-
-### Deploy
-
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
-
-### Cast
-
-```shell
-$ cast <subcommand>
-```
-
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```
+- 当前实现使用 Ethereum Sepolia 和 Arbitrum Sepolia 测试网
+- 跨链通过 Hyperbridge ISMP 协议实现
+- 测试网环境仅支持 feeToken (USD.h) 支付费用
