@@ -9,6 +9,7 @@ import {IDispatcher, DispatchPost, StateMachine} from "./interfaces/IISMPCore.so
  * @title TokenBridge
  * @notice 跨链捐款入口合约
  * @dev 部署在源链 (Ethereum Sepolia)
+ *      使用 feeToken (USD.h) 支付 Hyperbridge 跨链费用（测试网要求）
  */
 contract TokenBridge is ReentrancyGuard {
 
@@ -16,6 +17,9 @@ contract TokenBridge is ReentrancyGuard {
     address public immutable donationVault;   // 目标链金库地址
     bytes public destChainId;                 // 目标链标识
     uint256 public defaultEventId;            // 默认捐款事件ID
+
+    // Hyperbridge feeToken (USD.h) 地址 - Sepolia testnet
+    address public constant FEE_TOKEN = 0xA801da100bF16D07F668F4A49E1f71fc54D05177;
 
     // 事件
     event DonationInitiated(
@@ -45,6 +49,10 @@ contract TokenBridge is ReentrancyGuard {
         donationVault = _donationVault;
         destChainId = _destChainId;
         defaultEventId = _defaultEventId;
+
+        // 预先授权 feeToken 给 ISMP Host (测试网要求)
+        // 这样 ISMP Host 可以从本合约扣取跨链费用
+        IERC20(FEE_TOKEN).approve(_ismpHost, type(uint256).max);
     }
 
     /**
@@ -57,7 +65,7 @@ contract TokenBridge is ReentrancyGuard {
         address token,
         uint256 amount,
         uint256 eventId
-    ) external payable nonReentrant {
+    ) external nonReentrant {
         _donate(token, amount, eventId);
     }
 
@@ -66,7 +74,7 @@ contract TokenBridge is ReentrancyGuard {
      * @param token 捐款代币地址
      * @param amount 捐款金额
      */
-    function donate(address token, uint256 amount) external payable nonReentrant {
+    function donate(address token, uint256 amount) external nonReentrant {
         _donate(token, amount, defaultEventId);
     }
 
@@ -98,12 +106,13 @@ contract TokenBridge is ReentrancyGuard {
             to: abi.encodePacked(donationVault),        // 目标合约地址
             body: payload,                               // 消息内容
             timeout: 3600,                               // 1小时超时
-            fee: 0,                                      // 使用 msg.value 支付费用
+            fee: 0,                                      // relayer 费用 (暂时为0)
             payer: address(this)                         // 本合约支付费用
         });
 
         // Step 4: 发送跨链消息
-        bytes32 messageId = ismpHost.dispatch{value: msg.value}(request);
+        // ISMP Host 会从本合约的 USD.h 余额扣取费用（已在构造函数中 approve）
+        bytes32 messageId = ismpHost.dispatch(request);
 
         emit DonationInitiated(msg.sender, amount, eventId, messageId);
     }
@@ -115,5 +124,23 @@ contract TokenBridge is ReentrancyGuard {
     function updateDefaultEventId(uint256 newEventId) external {
         // TODO: 添加权限控制
         defaultEventId = newEventId;
+    }
+
+    /**
+     * @notice 充值 USD.h (feeToken) 用于支付跨链费用
+     * @param amount 充值金额
+     * @dev 任何人都可以为本合约充值 USD.h
+     */
+    function fundFeeToken(uint256 amount) external {
+        require(amount > 0, "Amount must be positive");
+        IERC20(FEE_TOKEN).transferFrom(msg.sender, address(this), amount);
+    }
+
+    /**
+     * @notice 查询合约的 USD.h 余额
+     * @return 当前 USD.h 余额
+     */
+    function getFeeTokenBalance() external view returns (uint256) {
+        return IERC20(FEE_TOKEN).balanceOf(address(this));
     }
 }
