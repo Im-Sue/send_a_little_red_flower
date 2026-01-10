@@ -1,4 +1,5 @@
 // Mock donation data for demonstration
+// 注意：eventId=1 对应链上 DonationVault 合约中真实存在的事件
 export interface Donation {
     id: string
     donor: string
@@ -14,21 +15,21 @@ export interface Donation {
     txHash: string
 }
 
-// Generate mock data
+// Generate mock data - 使用真实的测试地址
 export const mockDonations: Donation[] = [
     {
         id: '1',
-        donor: '0x1234567890abcdef1234567890abcdef12345678',
+        donor: '0xF344DC8d71f752D87Ef1c8662aF671973010249f', // 实际测试捐赠者
         amount: 100,
         tokenSymbol: 'USDT',
         flowersReceived: 10000,
-        timestamp: new Date(Date.now() - 2 * 60 * 1000), // 2 minutes ago
-        eventId: 1,
-        eventTitle: '某某小朋友医疗救助',
-        sourceChain: 'Sepolia',
-        targetChain: 'Paseo',
+        timestamp: new Date(Date.now() - 2 * 60 * 1000),
+        eventId: 1, // 对应链上真实事件
+        eventTitle: '小明白血病医疗救助',
+        sourceChain: 'Ethereum Sepolia',
+        targetChain: 'Arbitrum Sepolia',
         status: 'completed',
-        txHash: '0xabcd1234567890abcdef1234567890abcdef1234567890abcdef1234567890ab'
+        txHash: '0x652c834974d400ffd7178c5dbae0494fbd96594eab0c06d23ee389294da8f044' // 实际跨链交易
     },
     {
         id: '2',

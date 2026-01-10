@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import type { DonationEvent } from '../data/mockEvents'
 import { categoryConfig } from '../data/mockEvents'
 
@@ -59,8 +60,10 @@ function EventCard({ event }: EventCardProps) {
                 )}
             </div>
 
-            {/* Title & Description */}
-            <h3 className="event-card-title">{event.title}</h3>
+            {/* Title & Description - Clickable Link */}
+            <Link to="/event/1" className="event-card-link">
+                <h3 className="event-card-title">{event.title}</h3>
+            </Link>
             <p className="event-card-desc">{event.description}</p>
 
             {/* Progress Section */}

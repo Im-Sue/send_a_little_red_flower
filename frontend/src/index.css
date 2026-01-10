@@ -1973,3 +1973,947 @@ body {
 .events-empty-state p {
     color: var(--color-gray-500);
 }
+
+/* =============================================
+   Navigation Highlight Link
+   ============================================= */
+
+.navbar-link-highlight {
+    color: var(--color-rose-500) !important;
+    font-weight: 600 !important;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.navbar-link-highlight:hover {
+    color: var(--color-rose-600) !important;
+}
+
+.navbar-link-highlight.active {
+    background: linear-gradient(to right, var(--color-rose-500), var(--color-pink-600));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Donations Page */
+.donations-page {
+    padding-top: 5rem;
+    /* Account for fixed navbar */
+}
+
+/* =============================================
+   Event Detail Page
+   ============================================= */
+
+.event-detail-page {
+    min-height: 100vh;
+    background: white;
+    padding-top: 5rem;
+}
+
+/* Not Found State */
+.event-detail-not-found {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+    text-align: center;
+    padding: 2rem;
+}
+
+.event-detail-not-found-icon {
+    font-size: 5rem;
+    margin-bottom: 1.5rem;
+}
+
+.event-detail-not-found h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-gray-900);
+    margin-bottom: 0.5rem;
+}
+
+.event-detail-not-found p {
+    color: var(--color-gray-500);
+    margin-bottom: 2rem;
+}
+
+/* Hero Section */
+.event-detail-hero {
+    background: linear-gradient(to bottom, rgba(255, 241, 242, 0.5), white);
+    padding: 2rem 1.5rem 3rem;
+}
+
+@media (min-width: 768px) {
+    .event-detail-hero {
+        padding: 2.5rem 3rem 4rem;
+    }
+}
+
+/* Back Button */
+.event-detail-back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: white;
+    border: 1px solid var(--color-gray-200);
+    border-radius: 9999px;
+    color: var(--color-gray-600);
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-bottom: 1.5rem;
+}
+
+.event-detail-back-btn:hover {
+    background: var(--color-gray-50);
+    color: var(--color-gray-900);
+    border-color: var(--color-gray-300);
+}
+
+/* Header */
+.event-detail-header {
+    max-width: 48rem;
+}
+
+.event-detail-badges {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.event-status-active {
+    background: var(--color-rose-50);
+    color: var(--color-rose-600);
+}
+
+.event-detail-title {
+    font-size: clamp(1.75rem, 5vw, 2.5rem);
+    font-weight: 700;
+    color: var(--color-gray-900);
+    line-height: 1.2;
+}
+
+/* Content Section */
+.event-detail-content {
+    padding: 0 1.5rem 3rem;
+}
+
+@media (min-width: 768px) {
+    .event-detail-content {
+        padding: 0 3rem 3rem;
+    }
+}
+
+/* New Layout */
+.event-detail-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+@media (min-width: 1024px) {
+    .event-detail-layout {
+        flex-direction: row;
+        gap: 3rem;
+        align-items: flex-start;
+    }
+}
+
+/* Main Column */
+.event-detail-main-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    min-width: 0;
+}
+
+/* Sidebar Column - Sticky */
+.event-detail-sidebar-column {
+    width: 100%;
+}
+
+@media (min-width: 1024px) {
+    .event-detail-sidebar-column {
+        width: 360px;
+        flex-shrink: 0;
+        position: sticky;
+        top: 6rem;
+    }
+}
+
+/* Image Carousel */
+.event-detail-carousel {
+    position: relative;
+    margin-bottom: 1.5rem;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.carousel-viewport {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 1rem;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.carousel-slide {
+    flex-shrink: 0;
+    width: 100%;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    display: block;
+}
+
+@media (min-width: 768px) {
+    .carousel-slide img {
+        height: 400px;
+    }
+}
+
+/* Navigation Buttons */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 48px;
+    height: 48px;
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    transition: all 0.2s ease;
+    z-index: 10;
+    color: var(--color-gray-700);
+}
+
+.carousel-btn:hover {
+    background: white;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    color: var(--color-rose-500);
+}
+
+.carousel-btn-prev {
+    left: 1rem;
+}
+
+.carousel-btn-next {
+    right: 1rem;
+}
+
+@media (max-width: 767px) {
+    .carousel-btn {
+        width: 40px;
+        height: 40px;
+    }
+
+    .carousel-btn-prev {
+        left: 0.5rem;
+    }
+
+    .carousel-btn-next {
+        right: 0.5rem;
+    }
+}
+
+/* Indicator Dots */
+.carousel-indicators {
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 0.5rem;
+    z-index: 10;
+}
+
+.carousel-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    padding: 0;
+}
+
+.carousel-dot:hover {
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.carousel-dot.active {
+    background: white;
+    width: 24px;
+    border-radius: 5px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Slide Counter */
+.carousel-counter {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    z-index: 10;
+}
+
+/* Donate Card (Floating Sidebar) */
+.event-detail-donate-card {
+    background: white;
+    border: 1px solid var(--color-gray-100);
+    border-radius: 1.5rem;
+    padding: 1.5rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+@media (min-width: 768px) {
+    .event-detail-donate-card {
+        padding: 2rem;
+    }
+}
+
+.donate-card-progress {
+    margin-bottom: 1.5rem;
+}
+
+.donate-card-progress-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+}
+
+.donate-card-amount-current {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--color-rose-500);
+}
+
+.donate-card-percent {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--color-rose-500);
+    background: var(--color-rose-50);
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+}
+
+.donate-card-percent.completed {
+    color: var(--color-green-700);
+    background: var(--color-green-50);
+}
+
+.donate-card-progress-bar-container {
+    height: 10px;
+    background: var(--color-gray-100);
+    border-radius: 9999px;
+    overflow: hidden;
+    margin-bottom: 0.75rem;
+}
+
+.donate-card-progress-bar {
+    height: 100%;
+    border-radius: 9999px;
+    transition: width 0.5s ease;
+}
+
+.donate-card-target {
+    font-size: 0.875rem;
+    color: var(--color-gray-500);
+}
+
+.donate-card-stats {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 0;
+    border-top: 1px solid var(--color-gray-100);
+    border-bottom: 1px solid var(--color-gray-100);
+    margin-bottom: 1rem;
+}
+
+.donate-card-stat {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    color: var(--color-gray-600);
+}
+
+.donate-card-stat svg {
+    color: var(--color-gray-400);
+}
+
+.donate-card-stat.urgent {
+    color: #f59e0b;
+}
+
+.donate-card-stat.urgent svg {
+    color: #f59e0b;
+}
+
+.donate-card-deadline {
+    font-size: 0.875rem;
+    color: var(--color-gray-500);
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.donate-card-btn {
+    width: 100%;
+    padding: 1rem 2rem;
+    background: linear-gradient(to right, var(--color-rose-500), var(--color-pink-600));
+    color: white;
+    font-size: 1.125rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 9999px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 20px rgba(244, 63, 94, 0.4);
+}
+
+.donate-card-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(244, 63, 94, 0.5);
+}
+
+.donate-card-btn.disabled {
+    background: var(--color-gray-200);
+    color: var(--color-gray-500);
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.donate-card-btn.disabled:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+.donate-card-btn:disabled:not(.disabled) {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Workflow Steps */
+.event-detail-workflow-section {
+    margin-top: 0;
+}
+
+.workflow-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.workflow-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem 0;
+    position: relative;
+}
+
+.workflow-step:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: 18px;
+    top: 3.5rem;
+    width: 2px;
+    height: calc(100% - 2rem);
+    background: var(--color-gray-200);
+}
+
+.workflow-step.completed:not(:last-child)::after {
+    background: var(--color-green-400);
+}
+
+.step-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.875rem;
+    font-weight: 600;
+    background: var(--color-gray-100);
+    color: var(--color-gray-500);
+    flex-shrink: 0;
+    z-index: 1;
+}
+
+.workflow-step.completed .step-icon {
+    background: var(--color-green-500);
+    color: white;
+}
+
+.workflow-step.active .step-icon {
+    background: linear-gradient(to right, var(--color-rose-500), var(--color-pink-600));
+    color: white;
+    box-shadow: 0 4px 15px rgba(244, 63, 94, 0.3);
+}
+
+.step-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding-top: 0.25rem;
+}
+
+.step-title {
+    font-weight: 600;
+    color: var(--color-gray-900);
+}
+
+.workflow-step.active .step-title {
+    color: var(--color-rose-600);
+}
+
+.step-desc {
+    font-size: 0.875rem;
+    color: var(--color-gray-500);
+}
+
+/* Donation Form */
+.donate-form {
+    border-top: 1px solid var(--color-gray-100);
+    padding-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.donate-form-section {
+    margin-bottom: 1rem;
+}
+
+.donate-form-label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-gray-700);
+    margin-bottom: 0.5rem;
+}
+
+/* Chain Selector */
+.chain-selector {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.chain-option {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.75rem 0.5rem;
+    background: var(--color-gray-50);
+    border: 2px solid var(--color-gray-200);
+    border-radius: 0.75rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.chain-option:hover {
+    border-color: var(--color-rose-300);
+    background: var(--color-rose-50);
+}
+
+.chain-option.active {
+    border-color: var(--color-rose-500);
+    background: var(--color-rose-50);
+}
+
+.chain-icon {
+    font-size: 1.25rem;
+}
+
+.chain-name {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--color-gray-700);
+}
+
+.chain-option.active .chain-name {
+    color: var(--color-rose-600);
+}
+
+/* Amount Input */
+.amount-input-wrapper {
+    position: relative;
+    margin-bottom: 0.5rem;
+}
+
+.amount-input {
+    width: 100%;
+    padding: 0.875rem 1rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+    border: 2px solid var(--color-gray-200);
+    border-radius: 0.75rem;
+    outline: none;
+    transition: all 0.2s ease;
+    text-align: center;
+}
+
+.amount-input:focus {
+    border-color: var(--color-rose-400);
+    box-shadow: 0 0 0 3px rgba(244, 63, 94, 0.1);
+}
+
+.amount-input::placeholder {
+    color: var(--color-gray-400);
+    font-weight: 400;
+}
+
+/* Quick Amounts */
+.quick-amounts {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.quick-amount-btn {
+    flex: 1;
+    padding: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    background: var(--color-gray-100);
+    border: 1px solid var(--color-gray-200);
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: var(--color-gray-700);
+}
+
+.quick-amount-btn:hover {
+    background: var(--color-rose-50);
+    border-color: var(--color-rose-300);
+}
+
+.quick-amount-btn.active {
+    background: var(--color-rose-500);
+    border-color: var(--color-rose-500);
+    color: white;
+}
+
+/* Info Card */
+.event-detail-info-card {
+    background: white;
+    border: 1px solid var(--color-gray-100);
+    border-radius: 1.5rem;
+    padding: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .event-detail-info-card {
+        padding: 2rem;
+    }
+}
+
+.event-detail-card-title {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--color-gray-900);
+    margin-bottom: 1rem;
+}
+
+.event-detail-sub-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-gray-700);
+    margin-bottom: 1rem;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-gray-100);
+}
+
+.event-detail-description {
+    color: var(--color-gray-600);
+    line-height: 1.8;
+}
+
+.event-detail-beneficiary-section {
+    margin-top: 0;
+}
+
+/* Beneficiary */
+.event-detail-beneficiary {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.beneficiary-avatar {
+    width: 3.5rem;
+    height: 3.5rem;
+    background: var(--color-rose-50);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-rose-500);
+    flex-shrink: 0;
+}
+
+.beneficiary-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.beneficiary-name {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--color-gray-900);
+}
+
+.beneficiary-address {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    font-family: var(--font-mono);
+    color: var(--color-gray-500);
+}
+
+.copy-btn {
+    background: none;
+    border: none;
+    padding: 0.25rem;
+    cursor: pointer;
+    color: var(--color-gray-400);
+    transition: color 0.2s ease;
+}
+
+.copy-btn:hover {
+    color: var(--color-rose-500);
+}
+
+/* Bottom Donations Section */
+.event-detail-donations-section {
+    background: var(--color-gray-50);
+    padding: 3rem 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .event-detail-donations-section {
+        padding: 4rem 3rem;
+    }
+}
+
+.event-detail-donations-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.event-detail-section-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-gray-900);
+}
+
+.event-detail-donations-count {
+    font-size: 0.875rem;
+    color: var(--color-gray-500);
+    background: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+}
+
+/* Horizontal Donations Scroll */
+.event-detail-donations-scroll {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 1rem;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-rose-200) transparent;
+}
+
+.event-detail-donations-scroll::-webkit-scrollbar {
+    height: 6px;
+}
+
+.event-detail-donations-scroll::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.event-detail-donations-scroll::-webkit-scrollbar-thumb {
+    background: var(--color-rose-200);
+    border-radius: 3px;
+}
+
+.event-detail-donation-item {
+    flex-shrink: 0;
+    width: 320px;
+    scroll-snap-align: start;
+}
+
+@media (min-width: 768px) {
+    .event-detail-donation-item {
+        width: 380px;
+    }
+}
+
+.event-detail-donations-empty {
+    text-align: center;
+    padding: 3rem 1.5rem;
+    background: white;
+    border-radius: 1rem;
+}
+
+.event-detail-donations-empty .empty-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.event-detail-donations-empty p {
+    font-weight: 600;
+    color: var(--color-gray-700);
+    margin-bottom: 0.25rem;
+}
+
+.event-detail-donations-empty span {
+    font-size: 0.875rem;
+    color: var(--color-gray-500);
+}
+
+/* Event Card Link */
+.event-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.event-card-link:hover .event-card-title {
+    color: var(--color-rose-500);
+}
+
+/* =============================================
+   Transaction Status Styles
+   ============================================= */
+
+/* Chain Info Text */
+.chain-info-text {
+    font-size: 0.75rem;
+    color: var(--color-gray-500);
+    margin-top: 0.5rem;
+    padding: 0.5rem;
+    background: var(--color-gray-50);
+    border-radius: 0.5rem;
+    text-align: center;
+}
+
+/* Donate Button States */
+.donate-card-btn.success {
+    background: linear-gradient(to right, var(--color-green-500), #16a34a) !important;
+    animation: successPulse 0.5s ease;
+}
+
+.donate-card-btn.error {
+    background: linear-gradient(to right, #ef4444, #dc2626) !important;
+}
+
+@keyframes successPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.02);
+    }
+}
+
+/* Transaction Hash Link */
+.tx-hash-link {
+    margin-top: 0.75rem;
+    text-align: center;
+}
+
+.tx-hash-link a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: 0.875rem;
+    color: var(--color-blue-500);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    background: rgba(59, 130, 246, 0.1);
+    border-radius: 0.5rem;
+    transition: all 0.2s ease;
+}
+
+.tx-hash-link a:hover {
+    background: rgba(59, 130, 246, 0.2);
+    color: #2563eb;
+}
+
+/* Error Message */
+.tx-error-message {
+    margin-top: 0.75rem;
+    padding: 0.75rem;
+    background: var(--color-red-50);
+    border: 1px solid var(--color-red-100);
+    border-radius: 0.5rem;
+    font-size: 0.75rem;
+    color: var(--color-red-700);
+    text-align: center;
+    word-break: break-word;
+}
+
+/* FLOWER Balance Section */
+.flower-balance-section {
+    padding: 1rem;
+    background: linear-gradient(135deg, var(--color-rose-50), var(--color-pink-50));
+    border-radius: 1rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    border: 1px solid var(--color-rose-100);
+}
+
+.flower-balance-label {
+    font-size: 0.75rem;
+    color: var(--color-gray-600);
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.flower-balance-amount {
+    font-size: 1.25rem;
+    font-weight: 700;
+    background: linear-gradient(to right, var(--color-rose-500), var(--color-pink-600));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}

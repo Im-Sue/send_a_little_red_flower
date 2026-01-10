@@ -88,7 +88,7 @@ export function WalletProvider({ children }: WalletProviderProps) {
     // Connect wallet
     const connect = useCallback(async () => {
         if (!window.ethereum) {
-            window.open('https://metamask.io/download/', '_blank')
+            alert('请先安装支持 EIP-1193 的钱包（如 MetaMask、OKX Wallet 等）')
             return
         }
 
