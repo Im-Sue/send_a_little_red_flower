@@ -110,9 +110,9 @@ function EventCard({ event }: EventCardProps) {
 
             {/* Action Button */}
             {event.isActive && !isCompleted ? (
-                <button className="event-donate-btn">
+                <Link to="/event/1" className="event-donate-btn">
                     💝 立即捐款
-                </button>
+                </Link>
             ) : (
                 <button className="event-donate-btn event-donate-btn-disabled" disabled>
                     {isCompleted ? '🌸 感谢支持' : '已结束'}

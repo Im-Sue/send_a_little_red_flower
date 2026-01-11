@@ -27,9 +27,15 @@ function Navbar() {
         <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
             <div className="navbar-content">
                 <Link to="/" className="navbar-logo">
-                    <svg className="navbar-logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                        <path d="M12 2L12 6M12 18L12 22M4.93 4.93L7.76 7.76M16.24 16.24L19.07 19.07M2 12L6 12M18 12L22 12M4.93 19.07L7.76 16.24M16.24 7.76L19.07 4.93" />
-                        <circle cx="12" cy="12" r="4" />
+                    <svg className="navbar-logo-icon" viewBox="0 0 24 24" fill="currentColor">
+                        {/* 五瓣小红花 */}
+                        <ellipse cx="12" cy="6" rx="3" ry="4" fill="#f43f5e" />
+                        <ellipse cx="17.5" cy="10" rx="3" ry="4" transform="rotate(72 17.5 10)" fill="#fb7185" />
+                        <ellipse cx="15.5" cy="16.5" rx="3" ry="4" transform="rotate(144 15.5 16.5)" fill="#f43f5e" />
+                        <ellipse cx="8.5" cy="16.5" rx="3" ry="4" transform="rotate(-144 8.5 16.5)" fill="#fb7185" />
+                        <ellipse cx="6.5" cy="10" rx="3" ry="4" transform="rotate(-72 6.5 10)" fill="#f43f5e" />
+                        {/* 花蕊 */}
+                        <circle cx="12" cy="12" r="3" fill="#fbbf24" />
                     </svg>
                     <span className="navbar-logo-text">送你一朵小红花</span>
                 </Link>
