@@ -42,12 +42,12 @@ function formatAddress(address: string): string {
     return `${address.slice(0, 6)}...${address.slice(-4)}`
 }
 
-// Mock images for the event gallery
+// Mock images for the event gallery - 山区儿童教育主题图片
 const mockEventImages = [
-    'https://images.unsplash.com/photo-1584515933487-779824d29309?w=800&h=400&fit=crop',
-    'https://images.unsplash.com/photo-1631815588090-d4bfec5b1ccb?w=800&h=400&fit=crop',
-    'https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=800&h=400&fit=crop',
-    'https://images.unsplash.com/photo-1538108149393-fbbd81895907?w=800&h=400&fit=crop',
+    'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800&h=400&fit=crop', // 学习的孩子们
+    'https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=800&h=400&fit=crop', // 书本和教育
+    'https://images.unsplash.com/photo-1509062522246-3755977927d7?w=800&h=400&fit=crop', // 教室场景
+    'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=800&h=400&fit=crop', // 希望与未来
 ]
 
 function EventDetailPage() {
@@ -209,7 +209,7 @@ function EventDetailPage() {
                         flowersReceived: Number(formatUnits(d.flowersReceived, 18)),
                         timestamp: new Date(Number(d.timestamp) * 1000),
                         eventId: Number(eventId),
-                        eventTitle: '小明白血病医疗救助',
+                        eventTitle: '山区儿童教育基金',
                         sourceChain: 'Ethereum Sepolia',
                         targetChain: 'Arbitrum Sepolia',
                         status: 'completed' as const,
@@ -307,8 +307,9 @@ function EventDetailPage() {
                         返回
                     </button>
 
-                    {/* Header with Badges and Title */}
+                    {/* Header with Title and Badges on same line */}
                     <div className="event-detail-header">
+                        <h1 className="event-detail-title">{event.title}</h1>
                         <div className="event-detail-badges">
                             <span
                                 className="event-category-badge"
@@ -324,7 +325,6 @@ function EventDetailPage() {
                                 <span className="event-status-badge event-status-ended">已结束</span>
                             )}
                         </div>
-                        <h1 className="event-detail-title">{event.title}</h1>
                     </div>
                 </div>
             </section>
@@ -383,7 +383,83 @@ function EventDetailPage() {
                             {/* Event Description Card */}
                             <div className="event-detail-info-card">
                                 <h3 className="event-detail-card-title">📋 事件详情</h3>
-                                <p className="event-detail-description">{event.description}</p>
+
+                                {/* 项目背景 */}
+                                <div className="event-detail-section">
+                                    <h4 className="event-detail-sub-title">📍 项目背景</h4>
+                                    <p className="event-detail-description">
+                                        云贵高原偏远山区的孩子们面临着严峻的教育资源匮乏问题。在海拔2800米的大山深处，
+                                        有一所名为"云贵希望小学"的学校，这里有超过500名学龄儿童，却只有一所破旧的教学楼和3名支教老师。
+                                    </p>
+                                    <p className="event-detail-description">
+                                        孩子们每天需要翻山越岭步行2小时才能到达学校，冬天的教室没有取暖设备，
+                                        课本和文具极度匮乏。尽管条件艰苦，孩子们对知识的渴望从未减退。
+                                        他们的眼神中闪烁着对未来的希望，让我们一起为他们点亮求学之路！
+                                    </p>
+                                </div>
+
+                                {/* 资金用途 */}
+                                <div className="event-detail-section">
+                                    <h4 className="event-detail-sub-title">💰 资金用途</h4>
+                                    <div className="fund-usage-tags">
+                                        <span className="fund-tag fund-tag-primary">📚 教材课本 - 40%</span>
+                                        <span className="fund-tag fund-tag-secondary">✏️ 学习用品 - 20%</span>
+                                        <span className="fund-tag fund-tag-tertiary">🏫 教室修缮 - 15%</span>
+                                        <span className="fund-tag fund-tag-quaternary">👨‍🏫 师资补贴 - 15%</span>
+                                        <span className="fund-tag fund-tag-quinary">💻 数字设备 - 10%</span>
+                                    </div>
+                                    <p className="event-detail-description" style={{ marginTop: '1rem' }}>
+                                        我们将为孩子们购买全新的课本和学习用品，改善教室的基础设施，
+                                        为坚守岗位的支教老师提供生活补贴，并逐步建立数字化教学环境，
+                                        让山区孩子也能享受到优质的教育资源。
+                                    </p>
+                                </div>
+
+                                {/* 受助群体 */}
+                                <div className="event-detail-section">
+                                    <h4 className="event-detail-sub-title">👧 受助群体</h4>
+                                    <div className="beneficiary-stats">
+                                        <div className="stat-item">
+                                            <span className="stat-number">500+</span>
+                                            <span className="stat-label">学龄儿童</span>
+                                        </div>
+                                        <div className="stat-item">
+                                            <span className="stat-number">6-15</span>
+                                            <span className="stat-label">年龄范围</span>
+                                        </div>
+                                        <div className="stat-item">
+                                            <span className="stat-number">12</span>
+                                            <span className="stat-label">覆盖村落</span>
+                                        </div>
+                                        <div className="stat-item">
+                                            <span className="stat-number">3</span>
+                                            <span className="stat-label">支教老师</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {/* 项目承诺 */}
+                                <div className="event-detail-section">
+                                    <h4 className="event-detail-sub-title">🔒 项目承诺</h4>
+                                    <div className="commitment-list">
+                                        <div className="commitment-item">
+                                            <span className="commitment-icon">✅</span>
+                                            <span>所有捐款通过 Hyperbridge 跨链协议安全转账</span>
+                                        </div>
+                                        <div className="commitment-item">
+                                            <span className="commitment-icon">✅</span>
+                                            <span>资金使用全程透明，链上可追溯</span>
+                                        </div>
+                                        <div className="commitment-item">
+                                            <span className="commitment-icon">✅</span>
+                                            <span>定期公示项目进展和受助情况</span>
+                                        </div>
+                                        <div className="commitment-item">
+                                            <span className="commitment-icon">✅</span>
+                                            <span>捐款者获得小红花代币作为爱心凭证</span>
+                                        </div>
+                                    </div>
+                                </div>
 
                                 {/* Beneficiary Info */}
                                 <div className="event-detail-beneficiary-section">

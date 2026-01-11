@@ -20,29 +20,29 @@ export interface DonationEvent {
 export const mockEvents: DonationEvent[] = [
     {
         id: 1, // 重要：此 ID 对应链上真实事件
-        title: '小明白血病医疗救助',
-        description: '8岁的小明患有急性淋巴细胞白血病，需要进行骨髓移植手术。家庭经济困难，急需社会各界的帮助。所有捐款将通过 Hyperbridge 跨链协议安全转账，并获得小红花代币作为感谢凭证。',
+        title: '山区儿童教育基金',
+        description: '云贵高原偏远山区的孩子们面临着严峻的教育资源匮乏问题。这里有超过500名学龄儿童，却只有一所破旧的希望小学和3名支教老师。我们希望为这些渴望知识的孩子筹集教育基金，用于：购买课本和学习用品、改善教室基础设施、为支教老师提供生活补贴、建立数字化教学设备等。每一份捐款都将通过 Hyperbridge 跨链协议安全转账，所有资金使用情况全程透明可追溯，您将获得小红花代币作为爱心凭证。让我们一起为山区孩子点亮求学之路！',
         targetAmount: 50000,
         currentAmount: 32500,
         deadline: new Date('2026-02-15'),
         beneficiary: '0xF344DC8d71f752D87Ef1c8662aF671973010249f', // 实际测试地址
-        beneficiaryName: '小明家庭',
+        beneficiaryName: '云贵希望小学',
         isActive: true,
         donorCount: 156,
-        category: 'medical'
+        category: 'education'
     },
     {
         id: 2,
-        title: '山区儿童教育基金',
-        description: '为偏远山区的孩子们筹集教育资金，包括书本费、学杂费和学习用品，让每一个孩子都有读书的机会。',
+        title: '留守儿童关爱计划',
+        description: '为农村留守儿童提供心理辅导、课后托管和兴趣培养服务。这些孩子的父母常年在外务工，他们需要更多的关爱和陪伴。我们将建立儿童活动中心，配备专业社工和志愿者。',
         targetAmount: 30000,
         currentAmount: 18750,
         deadline: new Date('2026-03-01'),
         beneficiary: '0xabcdef1234567890abcdef1234567890abcdef12',
-        beneficiaryName: '希望小学',
+        beneficiaryName: '阳光儿童之家',
         isActive: true,
         donorCount: 89,
-        category: 'education'
+        category: 'community'
     },
     {
         id: 3,

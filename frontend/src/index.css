@@ -2077,14 +2077,20 @@ body {
 
 /* Header */
 .event-detail-header {
-    max-width: 48rem;
+    max-width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
 }
 
 .event-detail-badges {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
-    margin-bottom: 1rem;
+    gap: 0.5rem;
+    flex-shrink: 0;
 }
 
 .event-status-active {
@@ -2093,10 +2099,12 @@ body {
 }
 
 .event-detail-title {
-    font-size: clamp(1.75rem, 5vw, 2.5rem);
+    font-size: clamp(1.5rem, 4vw, 2rem);
     font-weight: 700;
     color: var(--color-gray-900);
     line-height: 1.2;
+    flex: 1;
+    min-width: 0;
 }
 
 /* Content Section */
@@ -2287,40 +2295,40 @@ body {
 .event-detail-donate-card {
     background: white;
     border: 1px solid var(--color-gray-100);
-    border-radius: 1.5rem;
-    padding: 1.5rem;
+    border-radius: 1.25rem;
+    padding: 1.25rem;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
 }
 
 @media (min-width: 768px) {
     .event-detail-donate-card {
-        padding: 2rem;
+        padding: 1.5rem;
     }
 }
 
 .donate-card-progress {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
 }
 
 .donate-card-progress-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.5rem;
 }
 
 .donate-card-amount-current {
-    font-size: 1.75rem;
+    font-size: 1.5rem;
     font-weight: 700;
     color: var(--color-rose-500);
 }
 
 .donate-card-percent {
-    font-size: 1rem;
+    font-size: 0.875rem;
     font-weight: 700;
     color: var(--color-rose-500);
     background: var(--color-rose-50);
-    padding: 0.25rem 0.75rem;
+    padding: 0.2rem 0.6rem;
     border-radius: 9999px;
 }
 
@@ -2330,11 +2338,11 @@ body {
 }
 
 .donate-card-progress-bar-container {
-    height: 10px;
+    height: 8px;
     background: var(--color-gray-100);
     border-radius: 9999px;
     overflow: hidden;
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.5rem;
 }
 
 .donate-card-progress-bar {
@@ -2344,29 +2352,31 @@ body {
 }
 
 .donate-card-target {
-    font-size: 0.875rem;
+    font-size: 0.8rem;
     color: var(--color-gray-500);
 }
 
 .donate-card-stats {
     display: flex;
     justify-content: space-between;
-    padding: 1rem 0;
+    padding: 0.6rem 0;
     border-top: 1px solid var(--color-gray-100);
     border-bottom: 1px solid var(--color-gray-100);
-    margin-bottom: 1rem;
+    margin-bottom: 0.75rem;
 }
 
 .donate-card-stat {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    font-size: 0.875rem;
+    gap: 0.35rem;
+    font-size: 0.8rem;
     color: var(--color-gray-600);
 }
 
 .donate-card-stat svg {
     color: var(--color-gray-400);
+    width: 16px;
+    height: 16px;
 }
 
 .donate-card-stat.urgent {
@@ -2378,18 +2388,18 @@ body {
 }
 
 .donate-card-deadline {
-    font-size: 0.875rem;
+    font-size: 0.75rem;
     color: var(--color-gray-500);
     text-align: center;
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.75rem;
 }
 
 .donate-card-btn {
     width: 100%;
-    padding: 1rem 2rem;
+    padding: 0.75rem 1.5rem;
     background: linear-gradient(to right, var(--color-rose-500), var(--color-pink-600));
     color: white;
-    font-size: 1.125rem;
+    font-size: 1rem;
     font-weight: 600;
     border: none;
     border-radius: 9999px;
@@ -2503,20 +2513,20 @@ body {
 /* Donation Form */
 .donate-form {
     border-top: 1px solid var(--color-gray-100);
-    padding-top: 1rem;
-    margin-bottom: 1rem;
+    padding-top: 0.75rem;
+    margin-bottom: 0.75rem;
 }
 
 .donate-form-section {
-    margin-bottom: 1rem;
+    margin-bottom: 0.75rem;
 }
 
 .donate-form-label {
     display: block;
-    font-size: 0.875rem;
+    font-size: 0.8rem;
     font-weight: 600;
     color: var(--color-gray-700);
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.35rem;
 }
 
 /* Chain Selector */
@@ -2528,13 +2538,14 @@ body {
 .chain-option {
     flex: 1;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    gap: 0.25rem;
-    padding: 0.75rem 0.5rem;
+    justify-content: center;
+    gap: 0.35rem;
+    padding: 0.5rem;
     background: var(--color-gray-50);
     border: 2px solid var(--color-gray-200);
-    border-radius: 0.75rem;
+    border-radius: 0.5rem;
     cursor: pointer;
     transition: all 0.2s ease;
 }
@@ -2550,7 +2561,7 @@ body {
 }
 
 .chain-icon {
-    font-size: 1.25rem;
+    font-size: 1rem;
 }
 
 .chain-name {
@@ -2571,11 +2582,11 @@ body {
 
 .amount-input {
     width: 100%;
-    padding: 0.875rem 1rem;
-    font-size: 1.25rem;
+    padding: 0.6rem 0.75rem;
+    font-size: 1.125rem;
     font-weight: 600;
     border: 2px solid var(--color-gray-200);
-    border-radius: 0.75rem;
+    border-radius: 0.5rem;
     outline: none;
     transition: all 0.2s ease;
     text-align: center;
@@ -2599,12 +2610,12 @@ body {
 
 .quick-amount-btn {
     flex: 1;
-    padding: 0.5rem;
-    font-size: 0.875rem;
+    padding: 0.35rem;
+    font-size: 0.8rem;
     font-weight: 600;
     background: var(--color-gray-100);
     border: 1px solid var(--color-gray-200);
-    border-radius: 0.5rem;
+    border-radius: 0.35rem;
     cursor: pointer;
     transition: all 0.2s ease;
     color: var(--color-gray-700);
@@ -2655,6 +2666,131 @@ body {
 .event-detail-description {
     color: var(--color-gray-600);
     line-height: 1.8;
+}
+
+/* Event Detail Section */
+.event-detail-section {
+    margin-bottom: 0.5rem;
+}
+
+.event-detail-section .event-detail-sub-title:first-child {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none;
+}
+
+/* Fund Usage Tags */
+.fund-usage-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.fund-tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.fund-tag-primary {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(59, 130, 246, 0.1));
+    color: #2563eb;
+    border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+.fund-tag-secondary {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(16, 185, 129, 0.1));
+    color: #059669;
+    border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.fund-tag-tertiary {
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.15), rgba(245, 158, 11, 0.1));
+    color: #d97706;
+    border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.fund-tag-quaternary {
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(139, 92, 246, 0.1));
+    color: #7c3aed;
+    border: 1px solid rgba(139, 92, 246, 0.3);
+}
+
+.fund-tag-quinary {
+    background: linear-gradient(135deg, rgba(244, 63, 94, 0.15), rgba(244, 63, 94, 0.1));
+    color: #e11d48;
+    border: 1px solid rgba(244, 63, 94, 0.3);
+}
+
+/* Beneficiary Stats Grid */
+.beneficiary-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+@media (min-width: 640px) {
+    .beneficiary-stats {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    background: linear-gradient(135deg, var(--color-rose-50), var(--color-pink-50));
+    border-radius: 1rem;
+    border: 1px solid var(--color-rose-100);
+}
+
+.stat-number {
+    font-size: 1.5rem;
+    font-weight: 700;
+    background: linear-gradient(to right, var(--color-rose-500), var(--color-pink-600));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.stat-label {
+    font-size: 0.75rem;
+    color: var(--color-gray-600);
+    font-weight: 500;
+    margin-top: 0.25rem;
+}
+
+/* Commitment List */
+.commitment-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.commitment-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    background: var(--color-gray-50);
+    border-radius: 0.75rem;
+    border: 1px solid var(--color-gray-100);
+}
+
+.commitment-icon {
+    font-size: 1rem;
+    flex-shrink: 0;
+}
+
+.commitment-item span:last-child {
+    font-size: 0.9rem;
+    color: var(--color-gray-700);
+    line-height: 1.5;
 }
 
 .event-detail-beneficiary-section {
@@ -2894,23 +3030,25 @@ body {
 
 /* FLOWER Balance Section */
 .flower-balance-section {
-    padding: 1rem;
+    padding: 0.6rem 0.75rem;
     background: linear-gradient(135deg, var(--color-rose-50), var(--color-pink-50));
-    border-radius: 1rem;
-    margin-bottom: 1.5rem;
+    border-radius: 0.75rem;
+    margin-bottom: 1rem;
     text-align: center;
     border: 1px solid var(--color-rose-100);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .flower-balance-label {
     font-size: 0.75rem;
     color: var(--color-gray-600);
-    margin-bottom: 0.5rem;
     font-weight: 500;
 }
 
 .flower-balance-amount {
-    font-size: 1.25rem;
+    font-size: 1rem;
     font-weight: 700;
     background: linear-gradient(to right, var(--color-rose-500), var(--color-pink-600));
     -webkit-background-clip: text;
